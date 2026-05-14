@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-# This script uses ssh to connect to a remote server, execute a shell script to backup files, and sqlite3 databases. Once backup is complee it uses scp to copy the backup file from the remote server to the local machine. Finally it runs a restore script to extract the backup file.
+# This script uses ssh to connect to a remote server, execute a shell script to backup files, including sqlite3 databases files. Once backup is complee it uses scp to copy the backup file from the remote server to the local machine. Finally it runs a restore script to extract the backup files.
 
 # Make sure the file is executable: chmod +x retrieve.sh
 # Usage: ./retrieve.sh
