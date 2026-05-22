@@ -1,0 +1,30 @@
+# Docker Compose
+
+**Docker Compose** is the tool that reads docker-compose.yml and starts the n8n container with the right ports, volumes, and env vars.
+
+```yml
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    env_file:
+      - .env
+    volumes:
+      - ./local-files:/files
+      - n8n_data:/home/node/.n8n
+    environment:
+      - N8N_RESTRICT_FILE_ACCESS_TO=/files
+      - N8N_ENABLE_EXECUTE_COMMAND=true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  n8n_data:
+```
+Resources 
+
+https://docs.docker.com/compose/gettingstarted
+
